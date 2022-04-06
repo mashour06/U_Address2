@@ -7,4 +7,9 @@ $font-size-base: 0.9rem;
 $line-height-base: 1.6;
 
 // Change bootstrap grid system to 18 cols
-$grid-columns: 18 !default;
+$grid-columns: 18;
+
+$theme-colors: (
+    "primary": rgb(101, 40, 40),
+    "success": rgb(35, 49, 77)
+);

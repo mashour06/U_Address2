@@ -54,3 +54,5 @@ Route::prefix('user_dashboard')->group(function () {
     Route::post('/userPostUpdatedProfile/{id}', [UserDashboardController::class, 'userPostUpdatedProfile'])->name('userPostUpdatedProfile');
 
 });
+
+
