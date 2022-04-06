@@ -45,10 +45,20 @@ class AdminController extends Controller
     public function postUpdatedUser(Request $request, $id) {
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users,email',
+            'email' => 'required|email|unique:users,email,' . $id,
+            'password' => 'confirmed'
         ]);
+        if($request->password) {
 
-        User::find($id)->update($request->except('_token'));
+            $userToUpdate = User::find($id)->first();
+            $userToUpdate->name = $request->name;
+            $userToUpdate->email = $request->email;
+            $userToUpdate->password = Hash::make($request->password);
+            $userToUpdate->save();
+        } else {
+
+            User::find($id)->update($request->except(['_token', 'password']));
+        }
 
         return redirect()->back()->with('message','User Updated Successfully');
     }

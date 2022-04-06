@@ -37,7 +37,12 @@ class UserDashboardController extends Controller
             'country' => 'required',
         ]);
 
-        auth()->user()->addresses()->create($request->all());
+        $fields = $request->all();
+        $fields['latlng'] = $request->latitude . ',' . $request->longitude;
+        $fields['user_id'] = auth()->user()->id;
+        Address::create($fields);
+
+        // auth()->user()->addresses()->create($request->all());
 
         return redirect()->back()->with('message', 'Successfully created address');
     }
@@ -50,7 +55,12 @@ class UserDashboardController extends Controller
 
     public function userUpdateAddress($addr_id) {
         $address = Address::find($addr_id);
-        return view('user_dashboard.updateAddress', compact('address'));
+        if($address){
+            $latlng = explode(',', $address['latlng']);
+            $lat = $latlng[0];
+            $lng = $latlng[1];
+            return view('user_dashboard.updateAddress', compact('address', 'lat', 'lng'));
+        }
     }
 
     public function userPostUpdatedAddress(Request $request, $id) {
@@ -84,12 +94,13 @@ class UserDashboardController extends Controller
 
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|confirmed',
+            'email' => 'required|email|unique:users,email,' . $user_id,
+            'password' => 'confirmed',
         ]);
 
         $fields = $request->all();
         $fields['password'] = Hash::make($request->password);
+
         User::find($user_id)->update($fields);
 
         return redirect()->back()->with('message','Profile Updated Successfully');

@@ -54,11 +54,11 @@
                     </div>
                     <div class="mb-3">
                       <label for="" class="form-label">Latitude</label>
-                      <input type="text" name="latitude" value="{{ $address->latitude }}" class="form-control " id="txtLat" readonly="readonly">
+                      <input type="text" name="latitude" value="{{ $lat }}" class="form-control " id="txtLat" readonly="readonly">
                     </div>
                     <div class="mb-3">
                       <label for="" class="form-label">Longitude</label>
-                      <input type="text" name="longitude" value="{{ $address->longitude }}" class="form-control " id="txtLng" readonly="readonly">
+                      <input type="text" name="longitude" value="{{ $lng }}" class="form-control " id="txtLng" readonly="readonly">
                     </div>
 
                     <button type="submit" class="btn btn-primary">Update Address</button>

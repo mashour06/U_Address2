@@ -33,11 +33,16 @@
                       <input type="email" name="email" value="{{ $user->email }}" class="form-control" id="add-product">
                       <span class="text-danger">@error('email') {{ $message }} @enderror</span>
                     </div>
-                    {{-- <div class="mb-3">
-                      <label for="password" class="form-label">Password</label>
-                      <input type="text" name="password" class="form-control" id="">
-                      <span class="text-danger">@error('password') {{ $message }} @enderror</span>
-                    </div> --}}
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" id="">
+                        <span class="text-danger">@error('password') {{ $message }} @enderror</span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password_confirmation" class="form-label">Confirm Password</label>
+                        <input type="password" name="password_confirmation" class="form-control" id="">
+                        <span class="text-danger">@error('password_confirmation') {{ $message }} @enderror</span>
+                    </div>
                     <button type="submit" class="btn btn-primary">Update User</button>
                 </form>
             </div>
