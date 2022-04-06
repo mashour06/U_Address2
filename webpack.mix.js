@@ -11,15 +11,5 @@ const mix = require('laravel-mix');
  |
  */
 
-<<<<<<< HEAD
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css')
-=======
-mix.autoload({
-    jquery: ['$', 'window.jQuery',"jQuery","window.$","jquery","window.jquery"]
-});
-
-mix.combine(['resources/assets/js/*.js', 'resources/assets/js/*.map'], 'public/js/app.js')
-    .combine('resources/assets/css/*.css', 'public/css/app.css')
->>>>>>> d01be7bd6af2722bc4bd99f35181ff8ce2ab2b6c
-    .sourceMaps();
+ mix.js('resources/js/app.js', 'public/js')
+ .sass('resources/sass/app.scss', 'public/css')

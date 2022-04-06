@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Address;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserDashboardController extends Controller
 {
@@ -61,7 +63,8 @@ class UserDashboardController extends Controller
             'country' => 'required',
         ]);
 
-        Address::where('id', $id)->update($request->all());
+        // Address::where('id', $id)->update($request->all());
+        Address::find($id)->update($request->all());
 
         return redirect()->back()->with('message','Address Updated Successfully');
     }
@@ -70,5 +73,26 @@ class UserDashboardController extends Controller
         $address = Address::find($id);
         $address->delete();
         return redirect()->back()->with('message', 'Address Deleted Successfully.');
+    }
+
+    public function userUpdateProfile() {
+        $user = auth()->user();
+        return view('user_dashboard.userUpdateProfile', compact('user'));
+    }
+
+    public function userPostUpdatedProfile(Request $request, $user_id) {
+
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|confirmed',
+        ]);
+
+        $fields = $request->all();
+        $fields['password'] = Hash::make($request->password);
+        User::find($user_id)->update($fields);
+
+        return redirect()->back()->with('message','Profile Updated Successfully');
+
     }
 }

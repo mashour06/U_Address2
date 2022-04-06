@@ -48,9 +48,7 @@ $('#map-submit').click(function(){
             limit: 1,
         }
     }).done(function(data) {
-       // console.log(data);
         let obj = JSON.parse(JSON.stringify(data));
-        // console.log(obj.data[0].name);
         console.log(obj);
         document.getElementById('address_line1').value = obj.data[0].name;
         document.getElementById('address_line2').value = obj.data[0].street;

@@ -50,4 +50,7 @@ Route::prefix('user_dashboard')->group(function () {
     Route::get('/userShowAddresses', [UserDashboardController::class, 'userShowAddresses'])->name('userShowAddresses');
     Route::post('/userPostUpdatedAddress/{id}', [UserDashboardController::class, 'userPostUpdatedAddress'])->name('userPostUpdatedAddress');
     Route::get('/userDeleteAddress/{id}', [UserDashboardController::class, 'userDeleteAddress'])->name('userDeleteAddress');
+    Route::get('/userUpdateProfile', [UserDashboardController::class, 'userUpdateProfile'])->name('userUpdateProfile');
+    Route::post('/userPostUpdatedProfile/{id}', [UserDashboardController::class, 'userPostUpdatedProfile'])->name('userPostUpdatedProfile');
+
 });

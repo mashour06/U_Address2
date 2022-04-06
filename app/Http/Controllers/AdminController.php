@@ -48,9 +48,7 @@ class AdminController extends Controller
             'email' => 'required|email|unique:users,email',
         ]);
 
-        // dd($request);
-
-        User::where('id', $id)->update($request->except('_token'));
+        User::find($id)->update($request->except('_token'));
 
         return redirect()->back()->with('message','User Updated Successfully');
     }
@@ -95,7 +93,7 @@ class AdminController extends Controller
 
         ]);
 
-        Address::where('id', $id)->update($request->all());
+        Address::find($id)->update($request->all());
 
         return redirect()->back()->with('message','Address Updated Successfully');
     }

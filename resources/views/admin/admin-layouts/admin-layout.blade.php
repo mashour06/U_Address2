@@ -12,23 +12,12 @@
     <title>Admin Dashboard</title>
 
     <!-- Custom fonts for this template-->
-<<<<<<< HEAD
-    {{-- <link href="{{ asset('dashboard-assets/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css"> --}}
-=======
-    {{-- font awesome --}}
-    {{-- <link href="{{ asset('assets-new/all.min.css') }}" rel="stylesheet" type="text/css"> --}}
-    {{-- google fonts --}}
->>>>>>> d01be7bd6af2722bc4bd99f35181ff8ce2ab2b6c
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
-<<<<<<< HEAD
-    {{-- <link href="{{ asset('dashboard-assets/css/sb-admin-2.min.css') }}" rel="stylesheet"> --}}
-=======
-    {{-- <link href="{{ asset('assets-new/sb-admin-2.min.css') }}" rel="stylesheet"> --}}
->>>>>>> d01be7bd6af2722bc4bd99f35181ff8ce2ab2b6c
+
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
 
 </head>
@@ -169,49 +158,13 @@
             @csrf
         </form>
 
-        <!-- Bootstrap core JavaScript-->
-<<<<<<< HEAD
-        {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> --}}
-        {{-- <script src="{{ asset('dashboard-assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script> --}}
 
-        <!-- Core plugin JavaScript-->
-        {{-- <script src="{{ asset('dashboard-assets/vendor/jquery-easing/jquery.easing.min.js') }}"></script> --}}
 
-        <!-- Custom scripts for all pages-->
-        {{-- <script src="{{ asset('dashboard-assets/js/sb-admin-2.min.js') }}"></script> --}}
 
-        <!-- Page level plugins -->
-        {{-- <script src="{{ asset('dashboard-assets/vendor/chart.js/Chart.min.js') }}"></script> --}}
-
-        <!-- Page level custom scripts -->
-        {{-- <script src="{{ asset('dashboard-assets/js/demo/chart-area-demo.js') }}"></script> --}}
-        {{-- <script src="{{ asset('dashboard-assets/js/demo/chart-pie-demo.js') }}"></script> --}}
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmB0LDaMj2JkSi0SZwc0DKExwE_dCCXQk&v=weekly" async></script>
-        <script src="{{ asset('js/app.js') }}"></script>
-=======
-        {{-- <script src="{{ asset('assets-new/jquery.min.js') }}"></script>
-        <script src="{{ asset('assets-new/bootstrap.bundle.min.js') }}"></script>
-
-        <!-- Core plugin JavaScript-->
-        <script src="{{ asset('assets-new/jquery.easing.min.js') }}"></script>
-
-        <!-- Custom scripts for all pages-->
-        <script src="{{ asset('assets-new/sb-admin-2.min.js') }}"></script>
-
-        <!-- Page level plugins -->
-        <script src="{{ asset('assets-new/Chart.min.js') }}"></script>
-
-        <!-- Page level custom scripts -->
-        <script src="{{ asset('assets-new/chart-area-demo.js') }}"></script>
-        <script src="{{ asset('assets-new/chart-pie-demo.js') }}"></script> --}}
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmB0LDaMj2JkSi0SZwc0DKExwE_dCCXQk&v=weekly" async></script>
-        {{-- <script src="{{ asset('assets-new/maps.js') }}"></script> --}}
         <script src="{{ asset('js/app.js') }}"></script>
-
->>>>>>> d01be7bd6af2722bc4bd99f35181ff8ce2ab2b6c
 
     </body>
 
