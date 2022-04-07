@@ -12,7 +12,7 @@
             <!-- Content Row -->
         <div class="container">
             <div class="row">
-                <div class="col-4">
+                <div class="col-6">
                     <form method="POST" action="{{ route('postUpdatedAddress', $address->id) }}">
 
                         @if(session()->has('message'))
@@ -54,17 +54,17 @@
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Latitude</label>
-                                <input type="text" name="latitude" value="{{ $address->latitude }}" class="form-control " id="txtLat" readonly="readonly">
+                                <input type="text" name="latitude" value="{{ $lat }}" class="form-control " id="txtLat" readonly="readonly">
                             </div>
                             <div class="mb-3">
                                 <label for="" class="form-label">Longitude</label>
-                                <input type="text" name="longitude" value="{{ $address->longitude }}" class="form-control " id="txtLng" readonly="readonly">
+                                <input type="text" name="longitude" value="{{ $lng }}" class="form-control " id="txtLng" readonly="readonly">
                             </div>
 
                             <button type="submit" class="btn btn-primary">Update Address</button>
                         </form>
                 </div>
-                <div class="col-8">
+                <div class="col-12">
                     <div id="map_canvas" style="width: auto; height: 400px;"></div>
                     <br><br>
                     <div id="floating-panel">

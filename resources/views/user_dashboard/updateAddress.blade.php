@@ -12,7 +12,7 @@
             <!-- Content Row -->
         <div class="container">
             <div class="row">
-                <div class="col-4">
+                <div class="col-6">
 
                 <form method="POST" action="{{ route('userPostUpdatedAddress', $address->id) }}">
 
@@ -65,7 +65,7 @@
                 </form>
             </div>
 
-        <div class="col-8">
+        <div class="col-12">
 
             <div id="map_canvas" style="width: auto; height: 400px;"></div>
             <br><br>

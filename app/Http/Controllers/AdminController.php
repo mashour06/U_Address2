@@ -48,8 +48,8 @@ class AdminController extends Controller
             'email' => 'required|email|unique:users,email,' . $id,
             'password' => 'confirmed'
         ]);
-        if($request->password) {
 
+        if($request->password) {
             $userToUpdate = User::find($id)->first();
             $userToUpdate->name = $request->name;
             $userToUpdate->email = $request->email;
@@ -57,7 +57,7 @@ class AdminController extends Controller
             $userToUpdate->save();
         } else {
 
-            User::find($id)->update($request->except(['_token', 'password']));
+            User::find($id)->update($request->except(['password']));
         }
 
         return redirect()->back()->with('message','User Updated Successfully');
@@ -88,8 +88,14 @@ class AdminController extends Controller
     }
 
     public function updateAddress($addr_id) {
+
         $address = Address::find($addr_id);
-        return view('admin.updateAddress', compact('address'));
+        if($address){
+            $latlng = explode(',', $address['latlng']);
+            $lat = $latlng[0];
+            $lng = $latlng[1];
+            return view('user_dashboard.updateAddress', compact('address', 'lat', 'lng'));
+        }
     }
 
     public function postUpdatedAddress(Request $request, $id) {
@@ -103,7 +109,12 @@ class AdminController extends Controller
 
         ]);
 
-        Address::find($id)->update($request->all());
+        $fields = $request->all();
+        $fields['latlng'] = $request->latitude . ',' . $request->longitude;
+        // $fields['user_id'] = auth()->user()->id;
+        Address::update($fields);
+
+        // Address::find($id)->update($request->all());
 
         return redirect()->back()->with('message','Address Updated Successfully');
     }

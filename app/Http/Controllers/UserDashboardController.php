@@ -42,8 +42,6 @@ class UserDashboardController extends Controller
         $fields['user_id'] = auth()->user()->id;
         Address::create($fields);
 
-        // auth()->user()->addresses()->create($request->all());
-
         return redirect()->back()->with('message', 'Successfully created address');
     }
 
@@ -73,8 +71,10 @@ class UserDashboardController extends Controller
             'country' => 'required',
         ]);
 
-        // Address::where('id', $id)->update($request->all());
-        Address::find($id)->update($request->all());
+        $fields = $request->all();
+        $fields['latlng'] = $request->latitude . ',' . $request->longitude;
+        $fields['user_id'] = auth()->user()->id;
+        Address::find($id)->update($fields);
 
         return redirect()->back()->with('message','Address Updated Successfully');
     }
