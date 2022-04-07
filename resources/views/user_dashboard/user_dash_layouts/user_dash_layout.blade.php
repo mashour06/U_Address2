@@ -45,7 +45,7 @@
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('userHome') }}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <i class="fa-solid fa-user-gear"></i>
                     <span>User Dashboard</span></a>
             </li>
 
@@ -54,7 +54,7 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('userAddAddress') }}">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="fa-solid fa-user-gear"></i>
                     <span>Add Address</span></a>
             </li>
 
