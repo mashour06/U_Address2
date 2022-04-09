@@ -37,10 +37,11 @@ class UserDashboardController extends Controller
             'country' => 'required',
         ]);
 
-        $fields = $request->all();
-        $fields['latlng'] = $request->latitude . ',' . $request->longitude;
-        $fields['user_id'] = auth()->user()->id;
-        Address::create($fields);
+        // $fields = $request->all();
+        // $fields['latlng'] = $request->latitude . ',' . $request->longitude;
+        // $fields['user_id'] = auth()->user()->id;
+        // Address::create($fields);
+        auth()->user()->addresses()->create($request->all());
 
         return redirect()->back()->with('message', 'Successfully created address');
     }
@@ -52,12 +53,13 @@ class UserDashboardController extends Controller
     }
 
     public function userUpdateAddress($addr_id) {
+        ///////////////////// here ///////////////////////
         $address = Address::find($addr_id);
         if($address){
-            $latlng = explode(',', $address['latlng']);
-            $lat = $latlng[0];
-            $lng = $latlng[1];
-            return view('user_dashboard.updateAddress', compact('address', 'lat', 'lng'));
+            // $latlng = explode(',', $address['latlng']);
+            // $lat = $latlng[0];
+            // $lng = $latlng[1];
+            return view('user_dashboard.updateAddress', compact('address'));
         }
     }
 
@@ -71,10 +73,11 @@ class UserDashboardController extends Controller
             'country' => 'required',
         ]);
 
-        $fields = $request->all();
-        $fields['latlng'] = $request->latitude . ',' . $request->longitude;
-        $fields['user_id'] = auth()->user()->id;
-        Address::find($id)->update($fields);
+        // $fields = $request->all();
+        // $fields['latlng'] = $request->latitude . ',' . $request->longitude;
+        // $fields['user_id'] = auth()->user()->id;
+        // Address::find($id)->update($fields);
+        auth()->user()->addresses()->find($id)->update($request->all());
 
         return redirect()->back()->with('message','Address Updated Successfully');
     }

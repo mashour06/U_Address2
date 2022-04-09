@@ -94,7 +94,7 @@ class AdminController extends Controller
             $latlng = explode(',', $address['latlng']);
             $lat = $latlng[0];
             $lng = $latlng[1];
-            return view('user_dashboard.updateAddress', compact('address', 'lat', 'lng'));
+            return view('admin.updateAddress', compact('address', 'lat', 'lng'));
         }
     }
 
@@ -109,12 +109,7 @@ class AdminController extends Controller
 
         ]);
 
-        $fields = $request->all();
-        $fields['latlng'] = $request->latitude . ',' . $request->longitude;
-        // $fields['user_id'] = auth()->user()->id;
-        Address::update($fields);
-
-        // Address::find($id)->update($request->all());
+        Address::find($id)->update($request->all());
 
         return redirect()->back()->with('message','Address Updated Successfully');
     }

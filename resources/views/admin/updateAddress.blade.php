@@ -53,12 +53,7 @@
                               <span class="text-danger">@error('country') {{ $message }} @enderror</span>
                             </div>
                             <div class="mb-3">
-                                <label for="" class="form-label">Latitude</label>
-                                <input type="text" name="latitude" value="{{ $lat }}" class="form-control " id="txtLat" readonly="readonly">
-                            </div>
-                            <div class="mb-3">
-                                <label for="" class="form-label">Longitude</label>
-                                <input type="text" name="longitude" value="{{ $lng }}" class="form-control " id="txtLng" readonly="readonly">
+                                <input type="hidden" name="latlng" value="{{ $address->latlng }}" class="form-control" id="latlng">
                             </div>
 
                             <button type="submit" class="btn btn-primary">Update Address</button>

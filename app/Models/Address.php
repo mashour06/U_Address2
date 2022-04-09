@@ -20,6 +20,10 @@ class Address extends Model
         'latlng',
     ];
 
+    Protected $casting = [
+        'latlng' => 'object',
+    ];
+
     public function users() {
         return $this->belongsTo(User::class, 'user_id');
     }
