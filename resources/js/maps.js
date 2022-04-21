@@ -14,7 +14,7 @@ $(document).ready(function(){
     } else {
         latitude = 30.061963;
         longitude = 31.236877;
-        document.getElementById('latlng').value = JSON.stringify({lat: latitude, lng: longitude});
+        lat_lng = JSON.stringify({lat: latitude, lng: longitude});
     }
 
     // Creating map object
@@ -62,14 +62,13 @@ $(document).ready(function(){
                     limit: 1,
                 }
             }).done(function(data) {
-                let obj = JSON.parse(JSON.stringify(data));
-                console.log(obj);
-                document.getElementById('address_line1').value = obj.data[0].name;
-                document.getElementById('address_line2').value = obj.data[0].street;
-                document.getElementById('city').value = obj.data[0].region;
-                document.getElementById('district').value = obj.data[0].county;
-                document.getElementById('zip').value = obj.data[0].postal_code;
-                document.getElementById('country').value = obj.data[0].country;
+                let addr_data = data.data[0];
+                document.getElementById('address_line1').value = addr_data.name;
+                document.getElementById('address_line2').value = addr_data.street;
+                document.getElementById('city').value = addr_data.region;
+                document.getElementById('district').value = addr_data.county;
+                document.getElementById('zip').value = addr_data.postal_code;
+                document.getElementById('country').value = addr_data.country;
             });
         }
 

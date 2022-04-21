@@ -19,7 +19,7 @@
 
     <!-- Custom styles for this template-->
 
-<link rel="stylesheet" href="{{ asset('css/app.css') }}">
+<link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
 </head>
 
@@ -125,8 +125,9 @@
 
         </nav>
         <!-- End of Topbar -->
-
-        @yield('content')
+        <div id="app">
+            @yield('content')
+        </div>
 
         </div>
         <!-- End of Page Wrapper -->
@@ -161,7 +162,7 @@
             @csrf
         </form>
 
-        <script src="{{ asset('js/app.js') }}"></script>
+        <script src="{{ mix('js/app.js') }}"></script>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmB0LDaMj2JkSi0SZwc0DKExwE_dCCXQk&v=weekly" async></script>
 

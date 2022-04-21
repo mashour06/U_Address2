@@ -9,16 +9,17 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Admin Dashboard</title>
+    <title>User Dashboard</title>
 
     <!-- Custom fonts for this template-->
+
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
     <!-- Custom styles for this template-->
 
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+<link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
 </head>
 
@@ -28,10 +29,10 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav sidebar bg-gradient-info sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav sidebar bg-gradient-success sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('welcome') }}">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -43,28 +44,30 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="{{ route('adminHome') }}">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Admin Dashboard</span></a>
+                <a class="nav-link" href="">
+                    <i class="fa-solid fa-user-gear"></i>
+                    <span>User Dashboard</span></a>
             </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('showUsers') }}">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Show All Users</span></a>
+                <a class="nav-link" href="">
+                    <i class="fa-solid fa-user-gear"></i>
+                    <span>Add Address</span></a>
             </li>
+
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('addUser') }}">
+                <a class="nav-link" href="">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Add New User</span></a>
+                    <span>Show My Addresses</span></a>
             </li>
+
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('showAddresses') }}">
+                <a class="nav-link" href="">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Show All Addresses</span></a>
+                    <span>My Profile</span></a>
             </li>
 
 
@@ -122,8 +125,9 @@
 
         </nav>
         <!-- End of Topbar -->
-
-        @yield('content')
+        <div id="app">
+            @yield('content')
+        </div>
 
         </div>
         <!-- End of Page Wrapper -->
@@ -147,14 +151,14 @@
                     <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault();
+                        <a class="btn btn-primary" href="" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">Logout</a>
                     </div>
                 </div>
             </div>
         </div>
 
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        <form id="logout-form" action="" method="POST" class="d-none">
             @csrf
         </form>
 
@@ -162,6 +166,6 @@
         <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
         <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDmB0LDaMj2JkSi0SZwc0DKExwE_dCCXQk&v=weekly" async></script>
 
-    </body>
 
+    </body>
 </html>
